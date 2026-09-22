@@ -9,6 +9,7 @@ import os
 import shutil
 import time
 import argparse
+import urllib.parse
 from pathlib import Path
 
 # Avoid UnicodeEncodeError on consoles with legacy code pages (e.g. Windows cp1252)
@@ -79,18 +80,34 @@ def rebuild_index(quiet: bool = False):
     return len(chunks)
 
 
+def _resolve_file_path(raw_path: str) -> Path:
+    """
+    Normalizes a user-supplied path that may be a plain filesystem path or a
+    'file://' URI (commonly produced by browsers, file managers, or 'copy link'
+    actions), including the '/C:/...' form Windows tools sometimes emit.
+    """
+    clean_path = raw_path.strip().strip("'").strip('"')
+    if clean_path.lower().startswith("file:"):
+        parsed = urllib.parse.urlparse(clean_path)
+        clean_path = urllib.parse.unquote(parsed.path)
+        # A URI like file:///C:/foo.pdf parses to a path starting with "/C:/foo.pdf" on
+        # Windows; strip the leading slash so Path() treats it as a drive-rooted path.
+        if len(clean_path) > 2 and clean_path[0] == "/" and clean_path[2] == ":":
+            clean_path = clean_path[1:]
+    return Path(clean_path).resolve()
+
+
 def ingest_document_file(file_path: str, replace_all: bool = False) -> bool:
     """
     Ingests a specific PDF document provided by path.
     Copies it to RAW_DOCS_DIR and rebuilds the FAISS index.
     """
-    clean_path = file_path.strip().strip("'").strip('"')
-    p = Path(clean_path).resolve()
+    p = _resolve_file_path(file_path)
     
     if not p.exists():
-        print(f"[X] Error: File does not exist at '{clean_path}'")
+        print(f"[X] Error: File does not exist at '{p}'")
         return False
-    
+
     if p.suffix.lower() != ".pdf":
         print(f"[X] Error: File must be a PDF document (.pdf), received: '{p.name}'")
         return False
@@ -201,6 +218,13 @@ def interactive_console(initial_file: str = None, top_k: int = 4):
         elif cmd.startswith("upload "):
             new_path = query[7:].strip()
             ingest_document_file(new_path)
+            continue
+        elif cmd.rstrip("'\"").endswith(".pdf"):
+            # Safety net: a bare PDF path typed without the "upload " prefix (e.g. pasted
+            # from a file manager) would otherwise be silently misinterpreted as a
+            # nonsense question. Treat it as an upload instead.
+            print(f"[i] That looks like a PDF file path, not a question — uploading it instead of querying.")
+            ingest_document_file(query)
             continue
         elif cmd in ["docs", "list", "files"]:
             docs = list(RAW_DOCS_DIR.glob("*.pdf")) if RAW_DOCS_DIR.exists() else []
