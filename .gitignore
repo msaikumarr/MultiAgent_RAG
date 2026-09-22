@@ -1,0 +1,50 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables & API keys
+.env
+
+# Vector store cache (regenerable via `py main.py --rebuild-index`)
+vector_store/*.index
+vector_store/*.pkl
+vector_store/*.json
+vector_store/*.bin
+
+# Processed documents cache
+data/processed_documents/*.json
+
+# Generated synthesis reports (regenerable; timestamped per run)
+outputs/*.md
+outputs/runs/
+
+# Non-project reference PDFs (excluded from the knowledge base; see main task notes)
+data/_excluded_not_project_pdfs/
+
+# IDE / OS
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db

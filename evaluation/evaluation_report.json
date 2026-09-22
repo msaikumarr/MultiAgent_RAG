@@ -1,0 +1,206 @@
+{
+  "total_benchmark_queries": 8,
+  "top_k_parameter": 4,
+  "proposed_multi_agent_rag": {
+    "mean_retrieval_precision_at_k": 0.75,
+    "mean_retrieval_recall_at_k": 0.5625,
+    "mean_retrieval_hit_rate": 0.875,
+    "mean_faithfulness_score": 0.6478,
+    "mean_concept_coverage": 0.2562,
+    "mean_latency_ms": 10276.31
+  },
+  "baseline_monolithic_llm": {
+    "mean_retrieval_precision_at_k": 0.0,
+    "mean_retrieval_recall_at_k": 0.0,
+    "mean_retrieval_hit_rate": 0.0,
+    "mean_faithfulness_score": 0.35,
+    "mean_concept_coverage": 0.0,
+    "mean_latency_ms": 1090.13
+  },
+  "detailed_query_results": [
+    {
+      "query_id": "Q01",
+      "query": "What are the main approaches discussed in these papers?",
+      "query_type": "summary",
+      "proposed_pipeline": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.625,
+        "concept_coverage": 0.75,
+        "latency_ms": 32293.18,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 717.9,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q02",
+      "query": "Compare the RAG techniques used in these papers.",
+      "query_type": "comparative",
+      "proposed_pipeline": {
+        "precision_at_k": 0.5,
+        "recall_at_k": 0.5,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.6111,
+        "concept_coverage": 0.2,
+        "latency_ms": 7593.23,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 720.86,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q03",
+      "query": "What methods are used to reduce hallucinations in generative synthesis?",
+      "query_type": "analytical",
+      "proposed_pipeline": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.8125,
+        "concept_coverage": 0.4,
+        "latency_ms": 8383.17,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 855.67,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q04",
+      "query": "Compare the advantages and limitations of these approaches.",
+      "query_type": "comparative",
+      "proposed_pipeline": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.3333,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.8,
+        "concept_coverage": 0.0,
+        "latency_ms": 7436.97,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 921.16,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q05",
+      "query": "Which papers discuss multi-agent architectures?",
+      "query_type": "targeted",
+      "proposed_pipeline": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.6667,
+        "concept_coverage": 0.2,
+        "latency_ms": 4606.98,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 811.45,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q06",
+      "query": "Summarize the common research gaps across these papers.",
+      "query_type": "summary",
+      "proposed_pipeline": {
+        "precision_at_k": 0.5,
+        "recall_at_k": 0.6667,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.25,
+        "concept_coverage": 0.0,
+        "latency_ms": 8622.17,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 849.0,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q07",
+      "query": "What differences exist between the proposed methods in Paper 1 and Paper 4?",
+      "query_type": "comparative",
+      "proposed_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.75,
+        "concept_coverage": 0.25,
+        "latency_ms": 6711.29,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 2343.58,
+        "citations_count": 0
+      }
+    },
+    {
+      "query_id": "Q08",
+      "query": "Synthesize the major findings from these documents.",
+      "query_type": "synthesis",
+      "proposed_pipeline": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5,
+        "hit_rate": 1.0,
+        "faithfulness_score": 0.6667,
+        "concept_coverage": 0.25,
+        "latency_ms": 6563.49,
+        "citations_count": 4
+      },
+      "baseline_pipeline": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "hit_rate": 0.0,
+        "faithfulness_score": 0.35,
+        "concept_coverage": 0.0,
+        "latency_ms": 1501.43,
+        "citations_count": 0
+      }
+    }
+  ]
+}

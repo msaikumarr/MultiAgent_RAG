@@ -1,0 +1,95 @@
+﻿[
+  {
+    "id": "Q01",
+    "query": "What are the main approaches discussed in these papers?",
+    "query_type": "summary",
+    "expected_sources": [
+      "paper_1_dense_retrieval_rag.pdf",
+      "paper_2_multi_agent_synthesis.pdf",
+      "paper_3_hallucination_verification.pdf",
+      "paper_4_hybrid_search_evaluation.pdf"
+    ],
+    "expected_concepts": ["dense retrieval", "multi-agent", "verification", "hybrid search"],
+    "ground_truth_summary": "The corpus explores dense vector retrieval with FAISS, multi-agent LangGraph orchestration, claim-level NLI faithfulness verification, and hybrid BM25-dense search."
+  },
+  {
+    "id": "Q02",
+    "query": "Compare the RAG techniques used in these papers.",
+    "query_type": "comparative",
+    "expected_sources": [
+      "paper_1_dense_retrieval_rag.pdf",
+      "paper_4_hybrid_search_evaluation.pdf"
+    ],
+    "expected_concepts": ["bi-encoder", "FAISS", "BM25", "hybrid search", "cross-encoder reranking"],
+    "ground_truth_summary": "Paper 1 focuses on pure bi-encoder dense embeddings with FAISS, whereas Paper 4 benchmarks hybrid dense-sparse fusion (BM25 + FAISS) with cross-encoder reranking."
+  },
+  {
+    "id": "Q03",
+    "query": "What methods are used to reduce hallucinations in generative synthesis?",
+    "query_type": "analytical",
+    "expected_sources": [
+      "paper_3_hallucination_verification.pdf",
+      "paper_2_multi_agent_synthesis.pdf"
+    ],
+    "expected_concepts": ["verification agent", "claim decomposition", "natural language inference", "NLI", "filtering"],
+    "ground_truth_summary": "Paper 3 introduces a three-phase claim decomposition and NLI verification pipeline, while Paper 2 uses LangGraph state coordination to isolate verification."
+  },
+  {
+    "id": "Q04",
+    "query": "Compare the advantages and limitations of these approaches.",
+    "query_type": "comparative",
+    "expected_sources": [
+      "paper_1_dense_retrieval_rag.pdf",
+      "paper_2_multi_agent_synthesis.pdf",
+      "paper_4_hybrid_search_evaluation.pdf"
+    ],
+    "expected_concepts": ["latency", "recall", "token overhead", "computational complexity"],
+    "ground_truth_summary": "Dense retrieval is fast but struggles on codes; hybrid search achieves 96.2% Recall@10 with +45ms latency; multi-agent reduces omissions by 82% with 3.5x latency."
+  },
+  {
+    "id": "Q05",
+    "query": "Which papers discuss multi-agent architectures?",
+    "query_type": "targeted",
+    "expected_sources": [
+      "paper_2_multi_agent_synthesis.pdf"
+    ],
+    "expected_concepts": ["LangGraph", "Retrieval Agent", "Analysis Agent", "Comparison Agent", "Verification Agent"],
+    "ground_truth_summary": "Paper 2 specifically presents a multi-agent framework orchestrating five specialized agents via LangGraph."
+  },
+  {
+    "id": "Q06",
+    "query": "Summarize the common research gaps across these papers.",
+    "query_type": "summary",
+    "expected_sources": [
+      "paper_1_dense_retrieval_rag.pdf",
+      "paper_2_multi_agent_synthesis.pdf",
+      "paper_4_hybrid_search_evaluation.pdf"
+    ],
+    "expected_concepts": ["hybrid-agent integration", "latency optimization", "compounding errors"],
+    "ground_truth_summary": "Common research gaps include developing unified hybrid-agent pipelines that avoid compounding multi-stage latency while handling alphanumeric nomenclature."
+  },
+  {
+    "id": "Q07",
+    "query": "What differences exist between the proposed methods in Paper 1 and Paper 4?",
+    "query_type": "comparative",
+    "expected_sources": [
+      "paper_1_dense_retrieval_rag.pdf",
+      "paper_4_hybrid_search_evaluation.pdf"
+    ],
+    "expected_concepts": ["pure dense", "hybrid sparse-dense", "reranking", "BM25"],
+    "ground_truth_summary": "Paper 1 utilizes pure Sentence-Transformers dense FAISS retrieval, whereas Paper 4 uses Reciprocal Rank Fusion of BM25 and FAISS with cross-encoder reranking."
+  },
+  {
+    "id": "Q08",
+    "query": "Synthesize the major findings from these documents.",
+    "query_type": "synthesis",
+    "expected_sources": [
+      "paper_1_dense_retrieval_rag.pdf",
+      "paper_2_multi_agent_synthesis.pdf",
+      "paper_3_hallucination_verification.pdf",
+      "paper_4_hybrid_search_evaluation.pdf"
+    ],
+    "expected_concepts": ["14.2% MRR", "82% omission reduction", "91.4% F1 verification", "96.2% Recall"],
+    "ground_truth_summary": "Dense FAISS improves MRR by 14.2%, multi-agent LangGraph reduces omissions by 82%, NLI verification achieves 91.4% F1 in hallucination detection, and hybrid search hits 96.2% Recall@10."
+  }
+]
