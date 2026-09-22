@@ -319,3 +319,5 @@ The system was evaluated against `evaluation/test_questions.json` comparing a **
 
 ## 13. License & Academic Citation
 Developed for academic research in Generative AI, Retrieval-Augmented Generation, and Multi-Agent Orchestration.
+
+**License:** All Rights Reserved. See [LICENSE](LICENSE) for details. This code may not be used, copied, modified, or distributed without prior written permission from the copyright holder.
